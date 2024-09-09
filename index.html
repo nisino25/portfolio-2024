@@ -1,0 +1,1093 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="ポケモンの映画やアニメエピソードのタイムラインを探索し、詳細な情報とリリース日を確認できます。">
+    <meta name="keywords" content="ポケモン, アニメ, 映画, タイムライン, エピソード, リリース日">
+    <meta name="author" content="nisino25">
+    <meta property="og:title" content="ポケモンアニメ-タイムライン">
+    <meta property="og:description" content="ポケモンの映画やアニメエピソードのタイムラインを探索し、詳細な情報とリリース日を確認できます。">
+    <meta property="og:url" content="https://nisino25-pokeani-timeline.netlify.app/">
+
+    <!-- notesan font  -->
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap">
+
+    <!-- aos -->
+
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
+    <title>Andyのポートフォリオ</title>
+
+    
+    
+    <style>
+        html,body{
+            margin: 0;
+            padding: 0;
+
+            font-family: 'Josefin Sans', sans-serif;
+            background-color: #EEEEEE;
+
+            width: 100dvw;
+            overflow-x: hidden;
+        }
+
+        img{
+            max-width: 100%;
+        }
+
+        h2{
+            display: inline-block;
+            border-bottom: solid 3px #DC5F00;
+            position: relative;
+        }
+
+        h2:after {
+            position: absolute;
+            content: " ";
+            display: block;
+            border-bottom: solid 3px #686D76;
+            bottom: -3px;
+            width: 30%;
+        }
+
+        .section{
+            margin-bottom: 50px;
+        }
+
+        .section .section-inner{
+            width: 1100px;
+            max-width: 92.5vw;
+            margin: auto;
+        }
+
+        /* ------------------------------------------------------------ */
+        .section-hero{
+            background-color: #373A40;
+            margin-bottom: unset;
+            padding: 100px 0;
+        }
+
+        .section-hero .text-line {
+            stroke-dasharray: 500;
+            stroke-dashoffset: 500;
+            animation: dash 4s linear forwards, filling 4s ease-in forwards;
+            font-size: 80px;
+        }
+
+        .section-hero .text-line text {
+            font-family: Helvetica,Arial,sans-serif;
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @keyframes dash {
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+
+        @keyframes filling {
+            0%, 90% { fill: #DC5F00; fill-opacity: 0; }
+            100% { fill: #DC5F00; fill-opacity: 1; }
+        }
+        .section-hero .grid-container{
+            display: grid;
+            grid-template-columns: 60% 40%;
+            justify-content: space-around;
+
+        
+            align-items: center;
+
+            color: #EEEEEE;
+        }
+
+
+        .section-hero .grid-container p{
+            font-size: 1.2em;
+            text-align: center;
+        }
+
+        .section-hero .grid-container .img-container{
+            
+            display: inline-block;
+            margin: auto;
+            /* padding: 20px; */
+
+            position:relative;
+
+            background: linear-gradient(transparent, #373A40);
+        }
+
+        .section-hero .grid-container .img-container img{
+            position: relative;
+            width: 100%;
+            z-index: 2;
+        }
+
+        
+        .img-container::before, 
+        .img-container::after {
+            content: '';
+            position: absolute;
+            pointer-events: none;
+            z-index: 5;
+        }
+
+        .img-container::before {
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background: linear-gradient(to right, 
+                #373A40 0%,   /* Starts with background color */
+                transparent 30%,  /* Fully opaque at 40% */
+                transparent 70%,  /* Begins fading out at 60% */
+                #373A40 100%  /* Fully transparent by 100% */
+            );
+            /* Horizontal gradient from left to right */
+        }
+
+        .img-container::after {
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background: linear-gradient(to bottom, 
+                #373A40 0%,   /* Starts with background color */
+                transparent 30%,  /* Fully opaque at 40% */
+                transparent 70%,  /* Begins fading out at 60% */
+                #373A40 100%  /* Fully transparent by 100% */
+            );
+            /* Vertical gradient from top to bottom */
+        }
+
+        .svg-curve {
+            fill: none;
+            width: 100%;
+            display: block;
+            transform: translateY(-1px);
+        }
+
+
+        .svg-curve path {
+            fill: #373A40;
+        }
+
+        /* ------------------------------------------------------------ */
+
+        .section-about-me .grid-container{
+            display: grid;
+            grid-template-columns: 50% 350px;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .profile-img-container{
+            background-color: black;
+            aspect-ratio: 1;
+            display: block;
+            margin: auto;
+            width: 180px;
+            border-radius: 50%;
+            overflow: hidden;
+
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .profile-img-container img{
+            width: 100%;
+        }
+
+        .grid-container span{
+            display: block;
+            text-align: center;
+            margin: 15px auto;
+            font-size: 1.5em;
+            color: #373A40;
+            font-weight: bold;
+        }
+
+        .grid-container strong{
+            display: block;
+            text-align: center;
+            font-size: 1.25em;
+            
+            
+            margin: auto auto 25px;
+            color: #DC5F00;
+            font-weight: bold;
+        }
+        
+
+        .timeline-container{
+            text-align: center;
+            position: relative;
+            transform: perspective(800px) rotateX(50deg); /* 3D effect */
+
+            margin: auto;
+            margin-top: -150px;
+        }
+
+        .timeline-card{
+            display: grid;
+            align-items: flex-start;
+
+            grid-template-columns: 10% 85%;
+            justify-content: space-between;
+
+            overflow: hidden;
+        }
+
+        .timeline-card div{
+            position: relative;
+            height: 100%;
+            width: 100%;
+
+            
+        }
+
+        .timeline-container .bullet{
+            left: 50%;
+            /* transform: translateX(-50%); */
+
+            display: block;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background-color: white;
+            border: 3px solid #DC5F00;
+
+            z-index: 5;
+        }
+
+        .timeline-container .bullet::after{
+            content: '';
+            display: block;
+            background-color: #DC5F00;
+
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+
+            width: 3px;
+            height: 100px;
+        }
+
+        .timeline-card p{
+            display: inline-block;
+            position: relative;
+
+            margin: 5px;
+        }
+
+        .timeline-card p::before,
+        .timeline-card p::after{
+            content: '';
+            background-color: #686D76;
+            height: 1px;
+            width: 100vw;
+
+            position: absolute;
+            top: 50%;
+            left: 100%;
+
+            transform: translateX(10px) translateY(-50%);
+            
+        }
+
+        .timeline-card p::after{
+            left: unset;
+            right: 100%;
+
+            transform: translateX(-10px) translateY(-50%);
+            
+        }
+
+        .timeline-card span{
+            display: block;
+            margin: 5px auto 20px;
+            font-size: 1.1em;
+            text-wrap: nowrap;
+        }
+
+        .milestone-container{
+            margin: auto;
+            display: flex;
+            gap: 35px;
+            margin: 120px auto;
+
+            justify-content: center;
+        }
+
+        .milestone-container .milestone{
+            position: relative;
+            height: 75px;
+
+            display: flex;
+            
+        }
+
+        .milestone-container .milestone:nth-child(even){
+            align-items: flex-end;
+        }
+
+        .milestone-container .milestone .icon{
+            position: absolute;
+            top: 0%;
+            left: 50%;
+            transform: translateX(-50%) translateY(calc(-100% - 10px));
+
+            text-align: center;
+        }
+
+        .milestone-container .milestone:nth-child(even) .icon{
+            position: absolute;
+            top: 100%;
+            transform: translateX(-50%) translateY(calc(0% + 10px));
+        }
+
+        .milestone-container .milestone .icon img{
+            max-width: unset;
+            width: 50px;
+            margin-bottom: 5px;
+        }
+
+        
+
+        .milestone-container .milestone .bullet{
+            position: relative;
+            display: block;
+            background-color: black;
+            width: 15px;
+            aspect-ratio: 1;
+
+            border-radius: 50%;
+        }
+
+        .milestone-container .milestone .bullet::after{
+            content: '';
+            display: block;
+            background-color: black;
+            width: 3px;
+            height: 75px;
+
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: rotate(-40deg);
+            transform-origin: top left; 
+        }
+
+        .milestone-container .milestone:nth-child(even) .bullet::after{
+            top: unset;
+            bottom: 10px;
+            left: 50%;
+            transform: rotate(40deg);
+            transform-origin: bottom left; 
+        }
+
+        .milestone-container .milestone:last-child .bullet::after{
+            content: unset !important;
+        }
+
+        .future-skills{
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .future-skills img{
+            display: block;
+            height: 60px;
+        }
+
+        /* ------------------------------------------------------------ */
+
+        .portfolio-container {
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 20px;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .portfolio-item {
+            position: relative;
+            background-color: white;
+            padding: 15px;
+            border-radius: 10px;
+
+            box-sizing: border-box;
+
+            padding-bottom: 50px;
+        }
+
+        .portfolio-item h3 {
+            font-size: 1.4em;
+        }
+
+        .portfolio-item .thumbnail-container{
+            display: block;
+            width: 100%;
+            border-radius: 10px;
+            background-color: #EEEEEE;
+            padding: 20px 0;
+        }
+
+        .portfolio-item img{
+            display: block;
+            height: 220px;
+            margin: auto;
+            width: auto;
+        }
+
+        .portfolio-item p {
+            margin: 10px 0;
+        }
+
+        .portfolio-item .skill-tab{
+            display: inline-block;
+            background-color: #686D76;
+            color: white;
+            margin: 10px 5px 10px 0;
+            padding: 5px 15px;
+            line-height: 1;
+        }
+
+        .portfolio-item .card-flex-container{
+            position: absolute;
+            bottom: 0%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: calc(100% - 30px);
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .portfolio-item .card-flex-container p{
+            color: #DC5F00;
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+
+        .portfolio-item .card-flex-container a,
+        .portfolio-item .card-flex-container a:visited{
+            color: #0077B6;
+        }
+
+        button {
+            padding: 10px 15px;
+            margin: 5px;
+            border: none;
+            cursor: pointer;
+
+            background-color: #686D76;
+            color: white;
+
+            transition: all .3s ease-in-out;
+        }
+            
+        .selected {
+            background-color: #DC5F00;
+        }
+
+        /* ------------------------------------------------------------ */
+        .pc-only { display: none !important; }
+        .sp-only { display: block !important; }
+        @media only screen and (min-width: 1280px) {.pc-only { display: block !important; }}
+        @media only screen and (min-width: 1280px) {.sp-only { display: none !important; }}
+        @media only screen and (max-width: 1150px) {
+            html,body{
+                font-size: 14px;
+            }
+
+            .section-hero .text-line{
+                font-size: 70px;
+            }
+
+            .section-hero .grid-container{
+                max-width: 90dvw;
+                margin: auto;
+                grid-template-areas:
+
+                    "right"
+                    "left";
+                grid-template-columns: 1fr; /* One column */
+                grid-template-rows: auto auto;
+            }
+
+            .section-hero .grid-container .hero-img {
+                width: 80%;
+                max-width: 500px;
+                margin: auto;
+                grid-area: right;
+            }
+
+            .section-hero .grid-container .hero-text {
+                grid-area: left;
+            }
+
+            .section-hero .grid-container .hero-text p{
+                text-align: left;
+            }
+
+            .milestone-container{
+                width: 300px;
+                gap: unset;
+                justify-content: space-between;
+            }
+
+            .milestone-container .milestone .bullet{
+                width: 10px;
+            }
+
+            .milestone-container .milestone .bullet::after{
+                transform: rotate(-20.5deg);
+                height: 60px;
+            }
+
+            .milestone-container .milestone:nth-child(even) .bullet::after{
+                transform: rotate(20.5deg);
+            }
+
+            .milestone-container .milestone .icon img{
+                width: 35px;
+            }
+
+            .milestone-container .milestone .icon span{
+                font-size: .8em;
+            }
+
+            .portfolio-container{
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+
+            .portfolio-item{
+                padding: 10px;
+                padding-bottom: 50px;
+            }
+
+            
+
+            .portfolio-item .skill-tab{
+                padding: 5px 10px;
+                margin: 0px 5px 10px 0;
+            }
+
+            .portfolio-item .card-flex-container{
+                bottom: 1%;
+                display: unset;
+            }
+
+            .portfolio-item .card-flex-container p{
+                text-wrap: nowrap;
+                font-size: .9em;
+                margin-bottom: unset;
+            }
+
+            .section-about-me .grid-container{
+                display: unset;
+            }
+
+            .timeline-container{
+                width: 300px;
+            }
+        }
+
+ 
+         
+    </style>
+
+</head>
+
+<body>
+    <div id="app">
+        <div class="section section-hero">
+            <div class="section-inner">
+                
+                <svg height="100" stroke="#DC5F00" stroke-width="2" class="text-line" width="100%">
+                    <text x="50%" dominant-baseline="middle" text-anchor="middle" y="50%">Welcome!</text>
+                </svg>
+                <div class="grid-container">
+                    <div class="hero-text">
+                        <p data-aos="fade-up" data-aos-delay="400">
+                            京都でウェブ制作会社に勤めるAndy(２５歳)です！<br class="pc-only">
+                            ポートフォリオをご覧いただきありがとうございます。
+                        </p>
+                        <p data-aos="fade-up" data-aos-delay="800">
+                            普段はフロントエンドをメインにLPのコーディングや、<br>
+                            ECサイトの運用を行っています。
+                        </p>
+                        <p data-aos="fade-up" data-aos-delay="1200">
+                            高校と大学で合計3年間のアメリカ留学を経て、<br class="pc-only">
+                            英語も日常的に使用しており、英会話でのコミュニケーションも得意です。
+                        </p>
+                    </div>
+                    <div class="hero-img">
+                        <div class="img-container">
+                            <img src="./img/hero.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <svg class="svg-curve" viewBox="0 0 1440 79" xmlns="http://www.w3.org/2000/svg">
+            <path d="M-100 79C-100 79 218.416 23.165 693.5 23.165C1168.58 23.165 1487 79 1487 79V0H-100V79Z"></path>
+        </svg>
+        
+        <div class="section section-milestone">
+            <div class="section-inner">
+                <h2>これまでに取得したスキル</h2>
+                <p data-aos="fade-up" data-aos-delay="500">
+                    現在、京都のウェブサイト制作会社で約2年間勤務しており、<br>
+                    主にLPやECサイトのコーディングを担当しています。<br>
+                    また、ECサイトの運用業務や、Node.jsを使った自動化にも取り組んでおり、<br>
+                    同僚やクライアントのタスクをより速く、簡単に、そして効率的にすることを目指しています。<br>
+                    <br>
+                    仕事においては、ただ作業するだけでなく、コミュニケーションを重視し、<br>
+                    プロジェクトに対して何ができるかを一緒に考えることが好きです。<br>
+                    新しいアイデアを出し、それを形にしていく過程に大きな喜びを感じています。<br>
+                    <br>
+                    日々の学習では、新しいスキルを学び身につけることが大好きです。<br>
+                    新しい知識を得るたびに、そのスキルを活用し、<br>
+                    実際にウェブサイトやプロジェクトを作り上げることに情熱を持っています。
+                </p>
+                <div class="milestone-container">
+                    <div 
+                        v-for="(item, index) in mileStones" 
+                        :key="item.title" 
+                        class="milestone" 
+                        data-aos="fade-left" 
+                        :data-aos-delay="index * 250"
+                    >
+                        <div>
+                            <div class="bullet"></div>
+                            <div class="icon">
+                                <img :src="`./img/icon/icon-${item.title}.svg`">
+                                <span>{{item.title}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h2>勉強中のスキル</h2>
+                <p>
+                    現在は、TypeScript、Reactといった技術を勉強しており、<br>
+                    最新のトレンドを取り入れた開発に積極的に取り組んでいます。<br>
+                    また、自分の趣味のウェブサイトを作成することが好きなので、Figmaも学びたいと考えています。
+                </p>
+                <div class="future-skills">
+                    <img src="./img/icon/icon-React.svg">
+                    <img src="./img/icon/icon-TypeScript.svg">
+                    <img src="./img/icon/icon-Figma.svg">
+                </div>
+            </div>
+        </div>
+
+        <div class="section section-portfolio">
+            <div class="section-inner">
+                <h2>これまでのプロジェクト</h2>
+                <div class="tabs-container">
+                    <button 
+                    v-for="category in categories" 
+                    :key="category" 
+                    @click="currentTab = category"
+                    :class="{ selected: currentTab === category }"
+                    >
+                    {{ category }}
+                    </button>
+                </div>
+                <!-- Portfolio Container -->
+                <div class="portfolio-container">
+                    <!-- Portfolio Items -->
+                    <div 
+                    v-for="item in filteredPortfolio" 
+                    :key="item.url" 
+                    class="portfolio-item"
+                    >
+                        <div class="thumbnail-container">
+                            <img v-if="item.thumbnail" :src="item.thumbnail">
+                            <img v-else src="./img/no-image.png">
+                        </div>
+                        <div class="card-bottom">
+                            <h3>{{ item.title || 'No Title' }}</h3>
+                            <p>{{ item.description || 'No Description' }}</p>
+                            <span 
+                                v-for="skill in item.skillSets" 
+                                :key="skil" 
+                                class="skill-tab"
+                                >
+                                {{ skill }}
+                            </span>
+                            <div class="card-flex-container">
+                                <p>リリース日: {{ formatReleasedDate(item.releasedDate) }}</p>
+                                <a v-if="item.url" :href="item.url" target="_blank">訪れる</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section section-about-me">
+            <div class="section-inner">
+                <h2>私について</h2>
+                <div class="section-inner">
+                    <div class="grid-container">
+                        <div>
+                            <div class="profile-img-container">
+                                <img src="./img/profile.jpg">
+                            </div>
+                            <span>Andy(25歳): <small>Kyoto, Japan</small></span>
+                            <strong>nisino25@gmail.com</strong>
+                            <p>
+                                東京で1999年に生まれ、小学校から高校までは札幌で過ごしました。<br>
+                                高校と大学時代に二度アメリカ留学し（オクラホマ州とオレゴン州）、<br>
+                                大学で出会ったアメリカ人の女性と結婚して京都に移住しました。<br>
+                                <br>
+                                趣味は、音楽を演奏することや、妻と一緒に月に二回カラオケに行くことが楽しみです。<br>
+                                また、コロナ禍にスピードキュービングを始め（平均15秒）、<br>
+                                自作したウェブサイトをつかいデータ収集や速度チェックをしています。<br>
+                                <br>
+                                スポーツはバスケットが大好きで、小学生の頃から始め、<br>
+                                留学中には現地の方とストリートバスケをしたり、今でも月に数回サークルなどでプレイしています。<br>
+                                バスケは見るのも大好きで、特にNBAに関してはスコアボードやニュース記事のまとめサイトなども作成しています。<br>
+                                <br>
+                                最近の流行りは健康のためのランニングとPokemon Goです。
+                            </p>
+                        </div>
+                        <div class="timeline">
+                            <div class="timeline-container">
+                                <div v-for="(item, index)  in timelines" :key="item" class="timeline-card-container">
+                                    <div 
+                                        class="timeline-card"
+                                        data-aos="fade-up"
+                                        :data-aos-delay="index * 150"
+                                    >
+                                        <div>
+                                            <div class="bullet"></div>
+                                        </div>
+                                        <div>
+                                            <p>{{ item.year }}</p>
+                                            <span v-html="item.title"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue@3/dist/vue.global.prod.js"></script>
+    <script type="module">
+        const app = Vue.createApp({
+            data() {
+                return {
+                    currentTab: 'おすすめ',
+                    
+                    timelines:[
+                        {year: 1999, title: '東京生まれ、その後札幌へ引越す'},
+                        {year: 2016, title: '高校の時アメリカ留学<br>（オクラホマ州）'},
+                        {year: 2017, title: 'プログラミングの勉強開始'},
+                        {year: 2018, title: 'アメリカ短大留学<br>（ポートランド）'},
+                        {year: 2020, title: 'アメリカ人女性と現地で学生結婚'},
+                        {year: 2021, title: '日本へ帰国後、京都で生活を始める'},
+                        {year: 2021, title: 'フリーで初めてのサイト作成'},
+                        {year: 2022, title: '京都のウェブ制作会社に入社'},
+                    ],
+                    mileStones:[
+                        {title: 'HTML'},
+                        {title: 'CSS'},
+                        {title: 'Javascript'},
+                        {title: 'Linux'},
+                        {title: 'Github'},
+                        {title: 'Bootstrap'},
+                        {title: 'Ruby'},
+                        {title: 'Vue'},
+                        {title: 'Firebase'},
+                        {title: 'AWS'},
+                        {title: 'Node'},
+                        {title: 'PHP'},
+                        {title: 'Wordpress'},
+                    ],
+                    portfolio:[
+                        {
+                            category: '趣味',
+                            recommend: true,
+                            title: 'ネタバレ防止機能付きNBAスコアボード', 
+                            skillSets: ['Vue','API'],
+                            url: 'https://nisino25-new-nba-scoreboard.netlify.app/',
+                            releasedDate: 202401, 
+                            thumbnail: './img/mockup/mockup-sp-scoreboard.png',
+                            description: 'NBA(アメリカンのプロバスケットボールリーグ)は僕が一番好きなスポーツです。このスコアボードでは、APIから取得したデータを使って、スコアのネタバレしないように表示します。また、接戦だった試合を強調して、どの試合が観る価値があるかをすぐに判断できます。試合結果を知らずに楽しめるので、とても便利です。(2024/4/14日のスコアがおすすめです)', 
+                        },
+                        {
+                            category: '趣味',
+                            recommend: false,
+                            title: 'NBAニュース自動取得ツール', 
+                            skillSets: ['Vue','Firebase'],
+                            url: 'https://nba-bros-news.netlify.app/',
+                            releasedDate: 202210, 
+                            thumbnail: './img/mockup/mockup-sp-news.png',
+                            description: 'リーグの最新情報をすぐにキャッチしたいので、このツールを作りました。1時間ごとに自動で複数の情報源からデータをスクレイピングして、Firebaseのデータベースにアップしています。', 
+                        },
+                        {
+                            category: '趣味',
+                            recommend: true,
+                            title: 'アニメリスト', 
+                            skillSets: ['Vue','API'],
+                            url: 'https://nisino25-anime-list.netlify.app/',
+                            releasedDate: 202402, 
+                            thumbnail: './img/mockup/mockup-sp-animelist.png',
+                            description: ' アニメ好きな僕と妻のために、このアプリを作りました。アニメAPIを使って、今どんなアニメがトレンドか、評価が高いかをチェックできます。さらに、自分のリストを作成して、観たアニメ、観ているアニメ、これから観るアニメを簡単に管理できます。アニメの視聴履歴をしっかり記録しておきたい方にピッタリです。', 
+                        },
+                        {
+                            category: '趣味',
+                            recommend: false,
+                            title: 'ルービックキューブタイマー', 
+                            skillSets: ['Vue'],
+                            url: 'https://nisino25-cube-timer.netlify.app/',
+                            releasedDate: 202009, 
+                            thumbnail: './img/mockup/mockup-sp-cube.png',
+                            description: 'スピードキューブが大好きで、このタイマーを作りました。データを一目で確認できるように、クリーンなビジュアルデザインにこだわりました。特に人気のキュービングサイトではあまり見かけない、すべてを一画面で完結させるコンセプトです。直近100回の記録やベストタイムなど、進捗を瞬時に把握できるのが特徴です。', 
+                        },
+                        {
+                            category: '趣味',
+                            recommend: false,
+                            title: 'オンラインボードゲーム(ゲシェンク)', 
+                            skillSets: ['Vue','Firebase'],
+                            url: 'https://nisino25-game.netlify.app/',
+                            releasedDate: 2022012, 
+                            thumbnail: './img/mockup/mockup-sp-geshenk.png',
+                            description: '以前、妻と一緒に彼女のアメリカに住む家族とボードゲーム（カタン、街コロなど）を楽しんでいましたが、日本に引っ越してから一緒に遊ぶことが難しくなりました。そこで、オンラインでプレイできるこのボードゲームを作成しました。3～7人でプレイ可能で、戦略的な要素も盛り込まれています。離れていても、家族みんなで再び楽しい時間を共有できるようになり、大変役立ちました。', 
+                        },
+                        {
+                            category: '趣味',
+                            recommend: true,
+                            title: 'オンライン大富豪', 
+                            skillSets: ['Vue','Firebase'],
+                            url: 'https://nisino25-daifugo.netlify.app/',
+                            releasedDate: 202407, 
+                            thumbnail: './img/mockup/mockup-sp-daifugo.png',
+                            description: '妻の家族と一緒に、週末に毎週1時間ほど大富豪を1年半以上プレイし続けていましたが、さすがに飽きてきたので、大富豪のオンライン版を作りました。特にカードのアニメーションに力を入れてみました。', 
+                        },
+                        {
+                            category: '趣味',
+                            recommend: false,
+                            title: '広告なしソリティア', 
+                            skillSets: ['Vue'],
+                            url: 'https://nisino25-solitaire.netlify.app/',
+                            releasedDate: 202208, 
+                            thumbnail: './img/mockup/mockup-sp-solitaire.png',
+                            description: '妻の父がソリティアをよくプレイしていましたが、広告に悩まされていました。そこで、広告が一切表示されないソリティアを作りました。これで、快適にゲームを楽しんでもらえるようにしています。', 
+                        },
+                        {
+                            category: '趣味',
+                            recommend: true,
+                            title: '誕生日・月の満ち欠け相性診断', 
+                            skillSets: ['Vue'],
+                            url: 'https://portfolio-c16d4.web.app/moon.html',
+                            releasedDate: 202409, 
+                            thumbnail: './img/mockup/mockup-sp-moon.png',
+                            description: '誕生日を入力することで、その日の月の満ち欠けをAPIから取得し、相性を診断するアプリです。計算部分が少し難しかったですが、基本的には二人の月が合わせて満月になると、相性が100点満点となります。シンプルながらも、面白い結果が得られる仕組みです。', 
+                        },
+                        {
+                            category: '一発ネタ',
+                            recommend: false,
+                            title: 'Slack継続アンケート', 
+                            skillSets: ['Vue','Firebase'],
+                            url: 'https://slack-petition.netlify.app/',
+                            releasedDate: 202403, 
+                            thumbnail: './img/mockup/mockup-pc-slack.png',
+                            description: '会社がSlackの使用を終了しようとしていて、あまり社員が納得できていない時期がありました。そこで、社員が「はい」か「いいえ」で意見を表明できるアンケートサイトを作りました。でも、ちょっとしたジョークで、「いいえ」をクリックしようとすると、ボタンがどんどん逃げてクリックできない仕掛けにしました。', 
+                        },
+                        {
+                            category: '一発ネタ',
+                            recommend: false,
+                            title: 'シンプルなアナログ時計サイト', 
+                            skillSets: ['Vue'],
+                            url: 'https://portfolio-c16d4.web.app/clock.html',
+                            releasedDate: 202302, 
+                            thumbnail: './img/mockup/mockup-pc-clock.png',
+                            description: '会社で2台目のモニターをもらったので、何か表示させておきたくて作った、ただのアナログ時計サイトです。特に機能はなく、時間をシンプルに表示するだけのものですが、デスクにちょっとしたアクセントを加えたいときに便利です。', 
+                        },
+                        {
+                            category: '一発ネタ',
+                            recommend: false,
+                            title: '京都限定GeoGuessr', 
+                            skillSets: ['Vue'],
+                            url: 'https://portfolio-c16d4.web.app/geoguesser.html',
+                            releasedDate: 202312, 
+                            thumbnail: './img/mockup/mockup-sp-geoguesser.png',
+                            description: ' GeoGuessrは有料なので、京都バージョンを自作しました。Google Maps APIキーを取得して、機能を学びながら作るのが楽しかったです。京都の地図だけで遊べるので、地元を再発見したいときにピッタリです。', 
+                        },
+                        {
+                            category: '一発ネタ',
+                            recommend: false,
+                            title: 'じゃんけん大戦争', 
+                            skillSets: ['Vue'],
+                            url: 'https://portfolio-c16d4.web.app/janken-claude.html',
+                            releasedDate: 202407, 
+                            thumbnail: './img/mockup/mockup-sp-war.png',
+                            description: 'ネットで話題になっていた動画を再現し、無数のグー、チョキ、パーが戦い合うゲームを作りました。これをChatGPTとClaudeのAIにコーディングさせて、どちらが面白いものを作れるか競争させた結果です。どちらのAIがより楽しいゲームを作れるか、ぜひ試してみてください！', 
+                        },
+                        {
+                            category: '一発ネタ',
+                            recommend: false,
+                            title: 'ポケモンガチャチョコ確率計算ツール', 
+                            skillSets: ['Vue'],
+                            url: 'https://portfolio-c16d4.web.app/poke-choco.html',
+                            releasedDate: 202402, 
+                            thumbnail: './img/mockup/mockup-pc-pokechoco.png',
+                            description: ' 15種類のポケモンが入ったガチャチョコスナックを再現したシミュレーションゲームです。実際に箱を開けるとかなりのお金がかかるので、代わりにこのゲームで試してみました。どれくらいの確率で全種類を集められるかを計算するのが楽しかったです。実際にチャレンジする前に、このシミュレーションで運試しをしてみてください。', 
+                        },
+                        {
+                            category: '一発ネタ',
+                            recommend: false,
+                            title: 'ポケモンアニメ・映画視聴順ガイド', 
+                            skillSets: ['Vue'],
+                            url: 'https://nisino25-pokeani-timeline.netlify.app/',
+                            releasedDate: 202406, 
+                            thumbnail: './img/mockup/mockup-sp-pokeani.png',
+                            description: '全てのポケモンアニメエピソードと映画を、公開日順に見ていくためのガイドを作りました。どのエピソードの後にどの映画を観るべきかをタイムライン形式で表示します。タイムラインをコーディングするのは楽しかったですし、これでポケモンの世界により深く浸ることができます。', 
+                        },
+                        {
+                            category: 'フリーランスのお仕事',
+                            recommend: true,
+                            title: '京都の教会のホームページ制作', 
+                            skillSets: ['Vue','Spreadsheet'],
+                            url: 'https://kamigamo-church.netlify.app/',
+                            releasedDate: 202209, 
+                            thumbnail: './img/mockup/mockup-pc-church.png',
+                            description: '両親が通っていた京都の教会のために、ゼロからウェブサイトを作成しました。CMSサイトではないため毎月のイベントやニュースの更新が大変でした。そこで、Googleスプレッドシートと連携させる仕組みを導入し、教会のスタッフがスプレッドシートに情報を入力するだけで、ウェブサイトに即座に反映されるようにしました。教会全体の運営がより効率的になりました。このサイトは、使いやすさと利便性を重視して設計しており、教会のコミュニティ活動を支える重要なツールとなっています。', 
+                        },
+                        {
+                            category: 'フリーランスのお仕事',
+                            recommend: false,
+                            title: 'バーレストランのシンプルウェブサイト', 
+                            skillSets: ['Vue'],
+                            url: 'https://kaguwa-kotoni.netlify.app/',
+                            releasedDate: 202405, 
+                            thumbnail: './img/mockup/mockup-sp-bar.png',
+                            description: '旧友の家族が経営するバーレストランのために、シンプルで使いやすいウェブサイトを作成しました。メニューや営業時間、アクセス情報を分かりやすく表示し、必要な情報をすぐに見つけられるようにデザインしています。派手な機能はないですが、訪れるお客さんが店舗の雰囲気やサービスを感じ取れるよう、シンプルながらも魅力的なサイトに仕上げました。', 
+                        },
+                        {
+                            category: 'お仕事',
+                            recommend: true,
+                            title: '子供向けミニゲーム開発記事', 
+                            skillSets: ['Vue','Wix'],
+                            url: 'https://kaguwa-kotoni.netlify.app/',
+                            releasedDate: 202409, 
+                            thumbnail: null,
+                            description: 'クライアントさんのご依頼で、子供をターゲットにしたミニゲームを開発した際の記事です。子供たちが楽しめるコンテンツを目指し、シンプルで直感的なゲームをいくつか作成しました。この記事では、そのプロセスや工夫した点について詳しく紹介しています。また、記事が掲載されているウェブサイトはWordPressで構築されており、サイト全体のコーディングも私が担当させて頂きました。', 
+                        },
+                        {
+                            category: 'お仕事',
+                            recommend: false,
+                            title: ' Bカートサイトのコーディング', 
+                            skillSets: ['Bcart'],
+                            url: null,
+                            releasedDate: 202408, 
+                            thumbnail: null,
+                            description: ' Bカートサイトのランディングページ（LP）を開発しました。直接URLを明かせないものの、ページ全体のコーディングや検索アルゴリズムの実装を担当しました。シンプルで直感的なデザインと、スムーズな操作感を両立させたLPです。', 
+                        },
+                        {
+                            category: '自動化ツール',
+                            recommend: false,
+                            title: 'メールマガジンHTML自動生成', 
+                            skillSets: ['Node.js'],
+                            url: null,
+                            releasedDate: 202402, 
+                            thumbnail: null,
+                            description: 'クライアントから提供されるエクセルシートを基に、ECサイトからデータをスクレイピングして、メールマガジンのHTMLを自動で作成するツールを開発。これにより、作業時間が2〜3倍速くなり、業務効率が大幅に向上しました。', 
+                        },
+                        {
+                            category: '自動化ツール',
+                            recommend: false,
+                            title: 'LP複製の自動化', 
+                            skillSets: ['Node.js'],
+                            url: null,
+                            releasedDate: 202405, 
+                            thumbnail: null,
+                            description: '細かい部分の変更が必要なランディングページの複製作業を自動化。これにより、手作業では5〜10倍速く対応でき、ページ制作のスピードが劇的に向上しました。', 
+                        },
+                        {
+                            category: '自動化ツール',
+                            recommend: false,
+                            title: 'WordPress記事のサムネイル自動設定', 
+                            skillSets: ['Node.js'],
+                            url: null,
+                            releasedDate: 202311, 
+                            thumbnail: null,
+                            description: '1000件以上の記事の中で、サムネイルが設定されていないものを検出し、記事内の最初の画像を自動でサムネイルとして設定するツールを作成。煩雑な作業を簡素化し、記事管理がスムーズになりました。', 
+                        },
+                        {
+                            category: '拡張機能',
+                            recommend: false,
+                            title: 'カスタムChrome拡張機能の自動入力', 
+                            skillSets: ['Node.js'],
+                            url: null,
+                            releasedDate: 202311, 
+                            thumbnail: null,
+                            description: '特定のパラメータを含むURLを自動生成するエクセルシートを作成しました。これにより、必要な情報をパラメータとして持つURLを簡単に作成できるようになりました。Chrome拡張機能によるデータ自動入力:私が作成したカスタムChrome拡張機能は、そのURLを開くと自動的にパラメータからデータを検出し、必要なフィールドにそのデータを自動で入力します。これにより、クライアントは手動で入力する手間がなくなり、作業が格段にスムーズになりました。', 
+                        },
+                        {
+                            category: '拡張機能',
+                            recommend: false,
+                            title: 'バックログ「いいね」でポケモンゲット', 
+                            skillSets: ['Node.js'],
+                            url: null,
+                            releasedDate: 202312, 
+                            thumbnail: null,
+                            description: 'ユーザーがバックログの投稿に「いいね」すると、画面上にランダムなポケモンが登場する楽しい仕掛けを作りました。ポケモンをキャッチすると、捕まえたポケモンは自動的にローカルのポケモンボックスに転送されます。このボックスは、私が作成したChrome拡張機能でいつでも確認でき、自分のコレクションを楽しむことができます。仕事中にも少しだけポケモンを集める楽しさを味わえる、ユニークな機能です。', 
+                        },
+
+                    ],
+                };
+            },
+            computed: {
+                categories() {
+                    // Use a Set to store unique categories
+                    const uniqueCategories = new Set(this.portfolio.map(item => item.category));
+                    // Convert the Set back to an array and add "全て" at the beginning
+                    return ['おすすめ','全て', ...Array.from(uniqueCategories)];
+                },
+                filteredPortfolio() {
+                    if (this.currentTab === '全て') {
+                        return this.portfolio;
+                    }
+
+                    if (this.currentTab === 'おすすめ') {
+                        return this.portfolio.filter(item => item.recommend);
+                    }
+
+                    return this.portfolio.filter(item => item.category === this.currentTab);
+                },
+            },
+            methods: {
+                formatReleasedDate(releasedDate) {
+                    const releasedDateStr = releasedDate.toString();
+                    const year = releasedDateStr.substring(0, 4);
+                    const month = releasedDateStr.substring(4, 6);
+                    return `${year}年${parseInt(month)}月`;
+                },
+            },
+            mounted() {
+                AOS.init();
+            }
+
+        });
+        app.mount('#app');
+    </script>
+</body>
+</html>
