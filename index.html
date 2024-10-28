@@ -13,10 +13,6 @@
     <!-- notesan font  -->
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap">
 
-    <!-- aos -->
-
-    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
 
     <title>Andyのポートフォリオ</title>
 
@@ -617,15 +613,15 @@
                 </svg>
                 <div class="grid-container">
                     <div class="hero-text">
-                        <p data-aos="fade-up" data-aos-delay="400">
+                        <p>
                             京都でウェブ制作会社に勤めるAndy(２５歳)です！<br class="pc-only">
                             ポートフォリオをご覧いただきありがとうございます。
                         </p>
-                        <p data-aos="fade-up" data-aos-delay="800">
+                        <p>
                             普段はフロントエンドをメインにLPのコーディングや、<br>
                             ECサイトの運用を行っています。
                         </p>
-                        <p data-aos="fade-up" data-aos-delay="1200">
+                        <p>
                             高校と大学で合計3年間のアメリカ留学を経て、<br class="pc-only">
                             英語も日常的に使用しており、英会話でのコミュニケーションも得意です。
                         </p>
@@ -645,7 +641,7 @@
         <div class="section section-milestone">
             <div class="section-inner">
                 <h2>これまでに取得したスキル</h2>
-                <p data-aos="fade-up" data-aos-delay="500">
+                <p>
                     現在、京都のウェブサイト制作会社で約2年間勤務しており、<br>
                     主にLPやECサイトのコーディングを担当しています。<br>
                     また、ECサイトの運用業務や、Node.jsを使った自動化にも取り組んでおり、<br>
@@ -660,13 +656,7 @@
                     実際にウェブサイトやプロジェクトを作り上げることに情熱を持っています。
                 </p>
                 <div class="milestone-container">
-                    <div 
-                        v-for="(item, index) in mileStones" 
-                        :key="item.title" 
-                        class="milestone" 
-                        data-aos="fade-left" 
-                        :data-aos-delay="index * 250"
-                    >
+                    <div v-for="(item, index) in mileStones" :key="item.title" class="milestone">
                         <div>
                             <div class="bullet"></div>
                             <div class="icon">
@@ -765,11 +755,7 @@
                         <div class="timeline">
                             <div class="timeline-container">
                                 <div v-for="(item, index)  in timelines" :key="item" class="timeline-card-container">
-                                    <div 
-                                        class="timeline-card"
-                                        data-aos="fade-up"
-                                        :data-aos-delay="index * 150"
-                                    >
+                                    <div class="timeline-card">
                                         <div>
                                             <div class="bullet"></div>
                                         </div>
@@ -986,7 +972,7 @@
                             recommend: true,
                             title: '子供向けミニゲーム開発記事', 
                             skillSets: ['Vue','Wix'],
-                            url: 'https://softcom.jp/3358/',
+                            url: 'https://kaguwa-kotoni.netlify.app/',
                             releasedDate: 202409, 
                             thumbnail: null,
                             description: 'クライアントさんのご依頼で、子供をターゲットにしたミニゲームを開発した際の記事です。子供たちが楽しめるコンテンツを目指し、シンプルで直感的なゲームをいくつか作成しました。この記事では、そのプロセスや工夫した点について詳しく紹介しています。また、記事が掲載されているウェブサイトはWordPressで構築されており、サイト全体のコーディングも私が担当させて頂きました。', 
@@ -1083,7 +1069,6 @@
                 },
             },
             mounted() {
-                AOS.init();
             }
 
         });
