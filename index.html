@@ -1,14 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="description" content="ポケモンの映画やアニメエピソードのタイムラインを探索し、詳細な情報とリリース日を確認できます。">
-    <meta name="keywords" content="ポケモン, アニメ, 映画, タイムライン, エピソード, リリース日">
+    <meta name="description" content="WebエンジニアAndyのポートフォリオサイト。趣味から業務まで、VueやFirebaseを使った様々なプロジェクトを紹介しています。">
+    <meta name="keywords" content="ポートフォリオ, Webエンジニア, Vue, Firebase, 自動化, フロントエンド, 京都">
     <meta name="author" content="nisino25">
-    <meta property="og:title" content="ポケモンアニメ-タイムライン">
-    <meta property="og:description" content="ポケモンの映画やアニメエピソードのタイムラインを探索し、詳細な情報とリリース日を確認できます。">
-    <meta property="og:url" content="https://nisino25-pokeani-timeline.netlify.app/">
+    <meta property="og:title" content="Andyのポートフォリオ">
+    <meta property="og:description" content="VueやFirebaseを活用したプロジェクトをまとめたポートフォリオサイト。">
+    <meta property="og:url" content="https://andy-1999.netlify.app/">
+    <meta property="og:type" content="website">
+
+    <!-- ファビコン -->
+    <link rel="icon" type="image/jpeg" href="./img/favicon.jpg">
 
     <!-- notesan font  -->
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap">
@@ -737,7 +742,7 @@
                             <span>Andy(25歳): <small>Kyoto, Japan</small></span>
                             <strong>nisino25@gmail.com</strong>
                             <p>
-                                東京で1999年に生まれ、小学校から高校までは札幌で過ごしました。<br>
+                                1999年東京で生まれましたが転勤が多く、小学校から高校までは札幌で過ごしました。<br>
                                 高校と大学時代に二度アメリカ留学し（オクラホマ州とオレゴン州）、<br>
                                 大学で出会ったアメリカ人の女性と結婚して京都に移住しました。<br>
                                 <br>
@@ -749,7 +754,8 @@
                                 留学中には現地の方とストリートバスケをしたり、今でも月に数回サークルなどでプレイしています。<br>
                                 バスケは見るのも大好きで、特にNBAに関してはスコアボードやニュース記事のまとめサイトなども作成しています。<br>
                                 <br>
-                                最近の流行りは健康のためのランニングとPokemon Goです。
+                                最近の流行りは健康のためのランニングとPokemon Goです。<br>
+                                2025年内に一度ハーフマラソンを２時間で、2026年秋のポートランドで行われるフルマラソンでは４時間を切れるように妻と練習しています。
                             </p>
                         </div>
                         <div class="timeline">
@@ -790,6 +796,7 @@
                         {year: 2021, title: '日本へ帰国後、京都で生活を始める'},
                         {year: 2021, title: 'フリーで初めてのサイト作成'},
                         {year: 2022, title: '京都のウェブ制作会社に入社'},
+                        {year: 2025, title: '東京のSES会社に入社'},
                     ],
                     mileStones:[
                         {title: 'HTML'},
@@ -807,6 +814,76 @@
                         {title: 'Wordpress'},
                     ],
                     portfolio:[
+                        {
+                            category: '趣味',
+                            recommend: true,
+                            title: '東京銭湯トレカ進捗管理アプリ', 
+                            skillSets: ['Vue',"Tailwind"],
+                            url: 'https://nisino25-sento-tcg.netlify.app/',
+                            releasedDate: 202503, 
+                            thumbnail: './img/mockup/mockup-sento-portrait.png',
+                            description: '都内約450か所の銭湯トレーディングカードを集めるための進捗管理サイトです。どの銭湯に行ったか、どのカードをゲットしたかをチェックできる機能を実装しました。銭湯巡りがもっと楽しく、目標を持って続けられるように、趣味と実用を兼ねて開発しました。', 
+                        },
+                        {
+                            category: '趣味',
+                            recommend: true,
+                            title: '生活習慣グラフ可視化ツール', 
+                            skillSets: ['Vue','Spreadsheet',"Tailwind"],
+                            url: null,
+                            releasedDate: 202504, 
+                            thumbnail: './img/mockup/mockup-graph-portrait.png',
+                            description: '自分の生活習慣や学習記録などをまとめているスプレッドシートと連携し、リアルタイムでグラフ表示できるツールです。数値を入力するとすぐに反映されるので、モチベーション維持や傾向の把握に役立ちます。見やすさと反応の速さにこだわって設計しました。', 
+                        },
+                        {
+                            category: '趣味',
+                            recommend: false,
+                            title: 'ポッドキャスト視聴管理アプリ', 
+                            skillSets: ['Vue','API',"Tailwind"],
+                            url: 'https://nisino25-podcast.netlify.app/',
+                            releasedDate: 202502, 
+                            thumbnail: './img/mockup/mockup-podcast-portrait.png',
+                            description: 'お気に入りのポッドキャストを検索・再生できるアプリを作成しました。APIを使って番組情報を取得し、どこまで聴いたかを記録できるようにしています。Apple純正アプリでは視覚的に進捗がわかりづらかったため、自分用に見やすさと管理機能にこだわって開発しました。', 
+                        },
+                        {
+                            category: '趣味',
+                            recommend: false,
+                            title: 'イタリア語学習アプリ', 
+                            skillSets: ['Vue','API'],
+                            url: null,
+                            releasedDate: 202502, 
+                            thumbnail: './img/mockup/mockup-italian-portrait.png',
+                            description: '自分の語学学習用に、イタリア語のフラッシュカード機能と、Duolingoでおなじみの「Match Madness（単語と意味の組み合わせゲーム）」を実装したアプリです。繰り返し学習や反復練習に特化しており、日々の勉強を楽しく続けられるように工夫しています。', 
+                        },
+                        {
+                            category: '趣味',
+                            recommend: true,
+                            title: '恵方巻きコンパスアプリ', 
+                            skillSets: ['Vue','API'],
+                            url: 'https://nisino25-eho-maki.netlify.app/',
+                            releasedDate: 202502, 
+                            thumbnail: './img/mockup/mockup-ehomaki-portrait.png',
+                            description: '節分の日に恵方を向いて恵方巻きを食べる習慣をサポートするためのアプリです。スマホのコンパス機能を使って、今年の恵方（吉方位）をリアルタイムに表示します。手軽に正しい方向がわかるように、シンプルなUIと動きにこだわって実装しました。', 
+                        },
+                        {
+                            category: '趣味',
+                            recommend: true,
+                            title: ' 読書記録＆本棚アプリ', 
+                            skillSets: ['Vue','API'],
+                            url: null,
+                            releasedDate: 202503, 
+                            thumbnail: './img/mockup/mockup-reading-portrait.png',
+                            description: '読みたい本・読んだ本を検索してリスト化できる読書管理アプリです。APIを使って書籍情報を検索・登録できるほか、本棚風のUIにもこだわって作り込みました。複数のライブラリを組み合わせて、実際の本棚に並べるような感覚でお気に入りの本を管理できます。', 
+                        },
+                        {
+                            category: '趣味',
+                            recommend: true,
+                            title: '映画マッチングアプリ', 
+                            skillSets: ['Vue','API',"Firebase","Tailwind"],
+                            url: 'https://nisino25-movie-match.netlify.app/',
+                            releasedDate: 202502, 
+                            thumbnail: './img/mockup/mockup-movie-portrait.png',
+                            description: 'ホストがルームを作成して友達を招待し、お互いに映画をスワイプしていくと、全員が「いいね」した映画でマッチ成立するアプリです。Firebaseを使ってリアルタイムに投票情報を同期し、複数人でスムーズに映画を決められるように工夫しました。週末の映画選びをちょっと楽しくしてくれるツールです。', 
+                        },
                         {
                             category: '趣味',
                             recommend: true,
